@@ -14,7 +14,7 @@ A full-stack employee management app with login and logout: a React dashboard an
 ## Tech Stack
 React + Vite (JavaScript, plain CSS) | Python Flask | SQLite | REST APIs with `fetch()`
 
-## Setup (Windows 11)
+## Setup
 
 Backend:
 ```powershell
@@ -58,13 +58,4 @@ The API runs at http://127.0.0.1:5000. The SQLite file is created automatically 
 
 Responses are shaped like `{ "success": true, "data": ... }` or `{ "success": false, "error": "...", "errors": { "field": "..." } }`.
 
-## Upload to GitHub
-```powershell
-git init
-git add .
-git commit -m "Initial commit: Employee Management System"
-git branch -M main
-git remote add origin https://github.com/<your-username>/employee-management-system.git
-git push -u origin main
-```
-Create the empty repository on github.com first. `.gitignore` already excludes `venv/`, `node_modules/` and the `.db` file.
+
