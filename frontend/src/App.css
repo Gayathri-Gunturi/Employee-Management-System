@@ -1,0 +1,150 @@
+:root {
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --border: #e2e5ea;
+  --text: #1f2933;
+  --muted: #6b7683;
+  --primary: #2f5bea;
+  --primary-dark: #2448c2;
+  --danger: #d64545;
+  --success: #1f8a5b;
+  --sidebar: #1b2433;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 15px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1 { font-size: 24px; margin: 0 0 20px; }
+h2 { font-size: 17px; margin: 0 0 16px; }
+
+/* Layout */
+.app { display: flex; min-height: 100vh; }
+.content { flex: 1; padding: 28px 32px; min-width: 0; }
+
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--sidebar);
+  padding: 22px 14px;
+  display: flex;
+  flex-direction: column;
+}
+.brand { color: #fff; font-size: 20px; font-weight: 700; padding: 0 10px 22px; letter-spacing: 1px; }
+.nav { display: flex; flex-direction: column; gap: 4px; }
+.nav-link {
+  background: none; border: none; color: #cbd2dc; text-align: left;
+  padding: 10px 12px; border-radius: 6px; font-size: 15px; cursor: pointer;
+}
+.nav-link:hover { background: rgba(255, 255, 255, 0.08); }
+.nav-link.active { background: var(--primary); color: #fff; }
+
+/* Sidebar user area */
+.sidebar-footer { margin-top: auto; display: flex; flex-direction: column; gap: 6px; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 14px; }
+.sidebar-user { color: #fff; font-size: 14px; padding: 0 12px; }
+.logout-link { color: #f0b4b4; }
+
+/* Login page */
+.login-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.login-card { width: 100%; max-width: 380px; margin-bottom: 0; padding: 28px; }
+.login-card h1 { font-size: 20px; margin-bottom: 4px; }
+.login-subtitle { margin: 0 0 12px; }
+.login-button { width: 100%; margin-top: 4px; }
+.login-hint { margin-top: 16px; font-size: 13px; text-align: center; }
+
+/* Cards and stats */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; }
+.stat-card { display: flex; flex-direction: column; gap: 6px; margin-bottom: 0; }
+.stat-label { color: var(--muted); font-size: 13px; }
+.stat-value { font-size: 28px; font-weight: 600; }
+
+/* CSS bar chart */
+.bar-chart { display: flex; flex-direction: column; gap: 12px; }
+.bar-row { display: flex; align-items: center; gap: 12px; }
+.bar-label { width: 140px; flex-shrink: 0; font-size: 14px; }
+.bar-track { flex: 1; background: #eef0f4; border-radius: 4px; height: 18px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--primary); border-radius: 4px; }
+.bar-count { width: 24px; text-align: right; font-weight: 600; }
+
+/* Page header, toolbar */
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.toolbar { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.toolbar input { flex: 1; min-width: 200px; }
+
+/* Inputs and buttons */
+input, select {
+  font: inherit; padding: 9px 11px; border: 1px solid var(--border);
+  border-radius: 6px; background: #fff; color: var(--text); width: 100%;
+}
+.toolbar select { width: 200px; }
+input:focus, select:focus { outline: 2px solid rgba(47, 91, 234, 0.3); border-color: var(--primary); }
+
+.btn {
+  font: inherit; padding: 9px 16px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--border); background: #fff; color: var(--text);
+}
+.btn:hover { background: #f1f3f6; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-danger { background: var(--danger); border-color: var(--danger); color: #fff; }
+.btn-danger:hover { background: #b93636; }
+.btn-small { padding: 5px 10px; font-size: 13px; }
+.btn-danger-outline { color: var(--danger); border-color: var(--danger); }
+.btn-danger-outline:hover { background: #fdeeee; }
+
+/* Table */
+.table-wrapper { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 900px; }
+th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--border); font-size: 14px; }
+th { color: var(--muted); font-weight: 600; font-size: 13px; background: #fafbfc; }
+tbody tr:hover { background: #fafbfc; }
+.actions { display: flex; gap: 8px; white-space: nowrap; }
+
+/* Messages and states */
+.message { padding: 11px 14px; border-radius: 6px; margin: 12px 0; font-size: 14px; }
+.message-success { background: #e7f6ee; color: var(--success); border: 1px solid #bfe5d0; }
+.message-error { background: #fdeeee; color: var(--danger); border: 1px solid #f3c6c6; }
+.loading, .empty-state, .muted { color: var(--muted); padding: 24px 0; text-align: center; }
+.muted { padding: 0; text-align: left; }
+
+/* Modal and form */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(20, 28, 40, 0.5);
+  display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 10;
+}
+.modal {
+  background: #fff; border-radius: 8px; padding: 24px; width: 100%;
+  max-width: 480px; max-height: 92vh; overflow-y: auto;
+}
+.modal-small { max-width: 400px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+.form-group label { font-size: 13px; font-weight: 600; }
+.field-error { color: var(--danger); font-size: 13px; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app { flex-direction: column; }
+  .sidebar { width: 100%; padding: 12px 14px; flex-direction: row; align-items: center; gap: 16px; }
+  .sidebar-footer { margin-left: auto; flex-direction: row; align-items: center; margin-top: 0; border-top: none; padding-top: 0; }
+  .brand { padding: 0; }
+  .nav { flex-direction: row; }
+  .content { padding: 18px 14px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .toolbar select { width: 100%; }
+  .bar-label { width: 100px; font-size: 13px; }
+}
